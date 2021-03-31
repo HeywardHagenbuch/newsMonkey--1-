@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-body">
+        News Monkey Portal - LOGIN
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+<form #f="ngForm" *ngIf=(!loggedIn)>
+
+    <div class="form-group">
+    <label>Email:</label>
+    <input class="form-control" type="email" name="email" #email="ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+    <label>Password:</label>
+    <input class="form-control" type="password" name="password" #password="ngModel" ngModel>
+    </div>
+  
+     <button class="btn btn-primary" type="submit" (click)="onSubmit(f.value)">LOGIN</button>
+</form>
+<br>
+<div class="alert alert-success" role="alert" *ngIf="loggedIn">
+    You have already logged in. Go to <a href='/home'>HOME</a> page
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="validationErrors">
+    ERROR: Input fields cannot be empty.
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="loginError">
+    ERROR: Invalid Credentials. Try again
+</div>
+
+<br>
+<a class="btn btn-secondary" href='/register'>REGISTER PAGE</a>
+
+</div>
+</div>

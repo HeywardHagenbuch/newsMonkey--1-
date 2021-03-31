@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+        News Monkey Portal - REGISTER
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+<form #f="ngForm" *ngIf=(!registered)>
+
+    <div class="form-group">
+    <label>Name:</label>
+    <input class="form-control" type="text" name="name" #name="ngModel" ngModel>
+    </div>
+
+    <div class="form-group">
+    <label>Email:</label>
+    <input class="form-control" type="email" name="email" #email="ngModel" ngModel>
+    </div>
+    
+    <div class="form-group">
+    <label>Password:</label>
+    <input class="form-control" type="password" name="password" #password="ngModel" ngModel>
+    </div>
+  
+     <button class="btn btn-primary" type="submit" (click)="onSubmit(f.value)">REGISTER</button>
+</form>
+<br>
+<div class="alert alert-success" *ngIf=(registered)>
+    You have already registered. Go to <a href='/home'>HOME</a> page
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="validationErrors">
+    ERROR: Input fields cannot be empty.
+</div>
+
+<br>
+<a class="btn btn-secondary" href='/login'>LOGIN PAGE</a>
+
+</div>
+</div>

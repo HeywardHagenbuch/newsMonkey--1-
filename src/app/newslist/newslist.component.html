@@ -1,0 +1,61 @@
+
+<div class="container h-100 d-flex justify-content-center">
+    <div >
+      <h1 class="display-5">News List</h1>
+    </div>
+  </div>
+  <div  >
+    <form class="form-inline my-2 my-lg-0"class="form-inline">
+      <input   [(ngModel)]="searchKey" name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="onSearch();" type="submit">Search</button>
+    </form>
+  </div>
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Published At</th>
+          <th scope="col">URL</th>
+          <th scope="col">Image URL</th>
+          <th scope="col">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody >
+        <ng-container *ngFor="let titleItem of filterArray;let i = index " >
+          <tr  *ngIf="titleItem.lock; else falseCondition"  class="hover-highlight" appColor>
+            <td >{{titleItem.title}}</td>
+            <td >{{titleItem.description}}</td>
+            <td>{{titleItem.publishedAt}}</td>
+            <td>{{titleItem.url}}</td>
+            <td>{{titleItem.imageUrl}}</td>
+            
+            <div class="btn-toolbar">
+              
+                <button *ngIf="expression "type="button" class="btn btn-info" class="btn btn-outline-success my-2 my-sm-0"(click) = "editRow(titleItem)">Edit</button>
+                
+               
+              <button type="button" id="remove"  class="btn btn-danger"class="btn btn-outline-danger btn-space" (click) = "deleteRow(titleItem)">Delete</button>
+          </div>
+          </tr> 
+          <ng-template #falseCondition >
+            <tr>
+              <td><input type="text"[(ngModel)]="titleItem.title"></td>
+              <td><input type="text"[(ngModel)]="titleItem.description"></td>
+              <td><input type="text"[(ngModel)]="titleItem.publishedAt"></td> 
+              <td><input type="text"[(ngModel)]="titleItem.url"></td> 
+              <td><input type="text"[(ngModel)]="titleItem.imageUrl"></td> 
+            
+  
+              
+                <button type="button" value="Input" class="btn btn-outline-success my-2 my-sm-0" (click)="updateRow(titleItem,i)">  Update </button>
+
+                <button type="button" value="Input" class="btn btn-outline-success my-2 my-sm-0" (click)="cancel(titleItem)">  Cancel </button>
+            
+            </tr>
+           
+            
+            </ng-template>  
+        </ng-container>             
+      </tbody> 
+  </table>

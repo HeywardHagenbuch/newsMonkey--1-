@@ -1,0 +1,41 @@
+<nav  class="navbar navbar-light" style="background-color: black;">
+    <div class="container"    >
+            <a routerLinkActive="active"[routerLinkActiveOptions]="{exact:true}" class="navbar-brand"  routerLink ="/addnews">Admin</a>
+            <div  >
+                <ul class="nav justify-content-end"class="nav nav-tabs">
+                    
+                    <li class="nav-item" routerLinkActive="active">
+                        <a class="btn btn-outline-success my-2 my-sm-0"  routerLink="/addnews">Add news</a>
+                    </li>
+                               
+                    <li class="nav-item" routerLinkActive="active">
+ 
+                        <a class="btn btn-outline-success my-2 my-sm-0"   routerLink="/newslist">News list</a>
+                    </li>
+                    <li class="nav-item" routerLinkActive="active">
+                        <a  class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">logout</a>
+                    </li>
+                </ul> 
+            </div>
+        </div> 
+        <div class="row justify-content-center align-items-center h-100">
+        <form   class="container h-100 d-flex justify-content-center">
+            <tbody>
+                <div  class="btn btn-outline-success my-2 my-sm-0">
+                <!-- <ng-container *ngFor="let credential of credential" > -->
+          
+                  <tr appColor>
+                   User Name: 
+                   
+                   <!-- <td >{{credential.userName}}</td> -->
+                </div>
+                <div class="btn btn-outline-success my-2 my-sm-0">
+                    Email:
+                    <!-- <td >{{credential.email}}</td> -->
+                  <!-- </tr>             -->
+                <!-- </ng-container>              -->
+                </div>
+              </tbody> 
+        </form>
+    </div>
+</nav>

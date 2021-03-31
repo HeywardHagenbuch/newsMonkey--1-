@@ -1,0 +1,69 @@
+
+
+<div class="container h-100 d-flex justify-content-center">
+    <div >
+      <h1 class="display-5">Add News</h1>
+    </div>
+ </div>
+<form [formGroup]="formModel" >
+    <div class="form-group row" class="container center_div" >
+        <div class="form-group col-md-14">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"></label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control form-control-lg"  placeholder="title" formControlName="title"  >
+            </div>
+            <div class="col-sm-12" class="alert alert-danger" role="alert" *ngIf="formModel.controls['title'].touched && formModel.controls['title'].invalid">
+                <span style="color:red" *ngIf="formModel.controls['title'].errors?.required">please enter the correct title</span>          
+            </div>
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"></label>
+            <div class="col-sm-12">
+                <input type="text" class="form-control form-control-lg"  placeholder="description"formControlName="description"  >
+            </div>
+            <div class="alert alert-danger" role="alert"  *ngIf="formModel.controls['description'].touched && formModel.controls['description'].invalid">
+                <span style="color:red" *ngIf="formModel.controls['description'].errors?.required">please enter description</span>
+            </div>
+            <label for="url-type-input" class="col-sm-2 col-form-label col-form-label-lg"></label>
+            <div class="col-sm-12">
+                <input type="url" id="url-type-input" class="form-control form-control-lg"  placeholder="url"formControlName="url"  >
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="formModel.controls['url'].touched && formModel.controls['url'].invalid">
+                <span style="color:red" *ngIf="formModel.controls['url'].errors?.required"> please enter url</span>
+                <span style="color:red" *ngIf="formModel.controls['url'].errors?.url">url is not on the right format</span>
+
+            </div>
+            
+            <label for="url-type-input" class="col-sm-2 col-form-label col-form-label-lg"></label>
+            <div class="col-sm-12">
+                <input type="url" id="url-type-input" class="form-control form-control-lg"  placeholder="image url"formControlName="imageUrl" >
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="(formModel.controls['imageUrl'].touched ||formModel.controls['imageUrl'].dirty)&& formModel.controls['imageUrl'].invalid">
+                <span style="color:red" *ngIf="formModel.controls['imageUrl'].errors?.required"> please enter image url</span>
+                <span style="color:red" *ngIf="formModel.controls['imageUrl'].errors?.url">url is not on the right format</span>
+            </div>
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"></label>
+            <div class="col-sm-12">
+                <input type="date" class="form-control form-control-lg"  placeholder="published at"formControlName="publishedAt"  >
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="formModel.controls['publishedAt'].touched && formModel.controls['publishedAt'].invalid">
+                <span style="color:red" *ngIf="formModel.controls['publishedAt'].errors?.required"> please enter image url</span>
+                
+            </div>
+        </div>
+     </div>
+      
+        <div class="container h-100 d-flex justify-content-center">
+            <div >
+                <button [disabled]="loading" (click)="onSubmit()" type="submit" class="btn btn-success">
+                <span *ngIf="loading" ></span>Add</button>
+            </div>
+            <div>
+                <button [disabled]="loading" type="reset" class="btn btn-warning">
+                    <span *ngIf="loading" ></span>Reset</button>
+            </div>
+        </div>
+        <p class="msg_success">{{ msg }}</p>
+</form> 
+
+
+   
+    
